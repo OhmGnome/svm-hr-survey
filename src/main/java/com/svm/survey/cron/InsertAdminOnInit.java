@@ -53,14 +53,14 @@ public class InsertAdminOnInit {
 	private void makeDefault() {
 		Auth auth = new Auth();
 		auth.setRole("admin");
-		auth.setPassword("augury");
+		auth.setPassword("");
 
-		List<User> adminUserExists = userRepository.findByUsername("axxis");
+		List<User> adminUserExists = userRepository.findByUsername("");
 		if (adminUserExists.size() > 0) {
 			auth.setUserId(adminUserExists.get(0).getId());
 		} else {
 			User user = new User();
-			user.setUsername("manager");
+			user.setUsername("");
 			user = userRepository.save(user);
 			auth.setUserId(user.getId());
 		}
